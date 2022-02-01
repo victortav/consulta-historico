@@ -10,12 +10,7 @@ historicos_db = [
     {'id': 1, 'nome':"Lara Oliveira"},
 ]
 
-@app.route('/app')
-def home():
-    home = "this is my home page"
-    return render_template('index.html', home1= home)
-    
-@api.route('/alunos')
+@api.route('/api/alunos')
 class HistoricoList(Resource):
     def get(self,):
         return historicos_db
