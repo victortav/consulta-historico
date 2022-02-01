@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, render_template, render_template_string
 from flask_restx import Api, Resource
 
 from server.instance import server
@@ -10,6 +10,11 @@ historicos_db = [
     {'id': 1, 'nome':"Lara Oliveira"},
 ]
 
+@app.route('/app')
+def home():
+    home = "this is my home page"
+    return render_template('index.html', home1= home)
+    
 @api.route('/alunos')
 class HistoricoList(Resource):
     def get(self,):
